@@ -31,9 +31,10 @@ public class EixEgole {
                 playing = false;
                 System.out.println("player "+ turn + " wins!");
             }
-            else
+            else if (fullBoard())
             {
                 System.out.println("Ther is no winner...");
+                break;
             }
 
             if (turn == 'X'){
@@ -49,14 +50,25 @@ public class EixEgole {
 
     public static void printBoard() {
         for (int i=0;i<3;i++){
-            System.out.println("");
+            System.out.println();
             for (int j=0;j<3;j++){
                 if (j==0)
                     System.out.print("| ");
                 System.out.print(board[i][j]+" | ");
             }
-            System.out.println("");
+            System.out.println();
         }
+    }
+
+    public static boolean fullBoard(){
+        for (int i=0;i<3;i++){
+            for (int j=0;j<3;j++) {
+                if (board[i][j] == '_')
+                    return false;
+
+            }
+        }
+        return true;
     }
 
 
@@ -71,9 +83,6 @@ public class EixEgole {
         if (board[0][0]==board[1][1] && board[0][0]==board[2][2] && board[1][1]!='_'){
             return true;
         }
-        if (board[0][2]==board[1][1] && board[0][2]==board[2][0] && board[1][1]!='_'){
-            return true;
-        }
-            return false;
+        return board[0][2] == board[1][1] && board[0][2] == board[2][0] && board[1][1] != '_';
     }
 }
