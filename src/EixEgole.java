@@ -59,6 +59,8 @@ public class EixEgole {
         }
     }
 
+
+
     public static boolean endGame(int rMove,int cMove){
         if (board[0][cMove]==board[1][cMove] && board[0][cMove]==board[2][cMove]){
             return true;
